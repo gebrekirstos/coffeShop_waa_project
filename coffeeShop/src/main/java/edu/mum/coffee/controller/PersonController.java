@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,8 +29,9 @@ public class PersonController {
 		model.addAttribute("persons", personService.findAll());
 		return "persons";
 	}
+	//add person
 	@GetMapping(value="addPerson")
-	public String addPersonWebPage(){		
+	public String addPersonWebPage(@ModelAttribute("person") Person person, Address address){		
 		return "addPerson";
 	}
 	

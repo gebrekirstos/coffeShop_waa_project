@@ -3,6 +3,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -50,13 +52,15 @@
 			<tr>
 				<td>${order.id}</td>
 				<td>${order.orderDate}</td>
-				<td>${order.person.name}</td>
+				<td>${order.person.firstName}</td>
 				<td>
+					<%-- <security:authorize access="hasRole('ADMIN')">	 --%>
 					<form action="/deleteorder/${order.id}" method="post">
 						<a href="${path}/orders/${order.id}"><input
 							type="button" value="Edit"></a>
 							 <input type="submit" value="Delete">
 					</form>
+					<%-- </security:authorize> --%>
 				</td>
 			</tr>
 		</c:forEach>

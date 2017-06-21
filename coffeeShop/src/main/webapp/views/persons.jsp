@@ -1,8 +1,11 @@
-<!DOCTYPE html>
-
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+<!DOCTYPE html>
 <html lang="en">
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <head>
@@ -17,65 +20,74 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-    $("#hide").click(function(){
-        $("p").hide();
-    });
-    $("#show").click(function(){
-        $("p").show();
-    });
-});
+	$(document).ready(function() {
+		$("#hide").click(function() {
+			$("p").hide();
+		});
+		$("#show").click(function() {
+			$("p").show();
+		});
+	});
 </script>
 </head>
 <body>
-<br/> <br/>
+	<br />
+	<br />
 	<div class="container">
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">CoffeShope</a>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">CoffeShope</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Persons</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Orders</a></li>
+				</ul>
 			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Persons</a></li>
-				<li><a href="#">Products</a></li>
-				<li><a href="#">Orders</a></li>
-			</ul>
-		</div>
-	</nav>
-	<h1 align="center">Person List</h1>
-	
-	
-	<table class="table table-striped">
-		<tr>
-			<th>ID</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Email</th>
-			<th>Phone</th>
-			<th>Action</th>
-		</tr>
-		<c:forEach var="person" items="${persons}">
+		</nav>
+		<h1 align="center">Person List</h1>
+
+
+		<table class="table table-striped">
 			<tr>
-				<td><c:out value="${person.id}"/></td>
-				<td><c:out value="${person.firstName}"/></td>
-				<td><c:out value="${person.lastName}"/></td>
-				<td><c:out value="${person.email}"/></td>
-				<td><c:out value="${person.phone}"/></td>
-				<td>
-					<form action="/deleteperson/${person.id}" method="post">
-						<a href="${path}/persons/${person.id}">
-						<input type="button" value="Edit"></a>
-					    
-					     <input type="submit" value="Delete">
-					</form>
-				</td>
+				<th>ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Action</th>
 			</tr>
-		</c:forEach>
-	</table>
-	<a href="<c:url value="/addPerson" />"> Add Person </a>
+			<c:forEach var="person" items="${persons}">
+				<tr>
+					<td><c:out value="${person.id}" /></td>
+					<td><c:out value="${person.firstName}" /></td>
+					<td><c:out value="${person.lastName}" /></td>
+					<td><c:out value="${person.email}" /></td>
+					<td><c:out value="${person.phone}" /></td>
+					<td>
+					<%-- <security:authorize access="hasRole('ADMIN')">	 --%>
+						<form action="/deleteperson/${person.id}" method="post">
+							<div class="form-group">
+								<div class="col-sm-offset-1 col-sm-10">
+									<a href="${path}/persons/${person.id}"> 
+									<input type="button" class="btn btn-primary" id="edit" value="Edit"></a>
+									<input type="submit" class="btn btn-danger" id="delete"
+										value="Delete" />
+								</div>
+							</div>
+							<!--  <input type="submit" value="Delete"> -->
+						</form>
+						<%-- </security:authorize> --%>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<a href="<c:url value="/addPerson" />"> Add Person </a>
 	</div>
 </body>
 </html>

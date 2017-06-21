@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Product</title>
 <!-- <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <link rel="stylesheet" href="/resources/demos/style.css">
@@ -33,60 +33,97 @@
 
 </head>
 <body>
-<br/> <br/>
+<br />
 	<div class="container">
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">CoffeShope</a>
+	<!-- menus -->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">CoffeShope</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Persons</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Orders</a></li>
+				</ul>
 			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Persons</a></li>
-				<li><a href="#">Products</a></li>
-				<li><a href="#">Orders</a></li>
-			</ul>
-		</div>
-	</nav>
-	<h1>Add Person</h1>
-	<form action="persons" method="post">
-		<table class="table table-hover">
-			<tr>
-				<td>First Name:</td>
-				<td><input type="text" name="firstName" /></td>
-			</tr>
-			<tr>
-				<td>Last Name:</td>
-				<td><input type="text" name="lastName" /></td>
-			</tr>
-			<tr>
-				<td>Email:</td>
-				<td><input type="text" name="email" /></td>
-			</tr>
-			<tr>
-				<td>Phone:</td>
-				<td><input type="text" name="phone" /></td>
-			</tr>
-			<tr><td>Address</td></tr>
-			<tr>
-				<td>City:</td>
-				<td><input type="text" name="city" /></td>
-			</tr>
-			<tr>
-				<td>State:</td>
-				<td><input type="text" name="state" /></td>
-			</tr>
-			<tr>
-				<td>Country:</td>
-				<td><input type="text" name="country" /></td>
-			</tr>
-			<tr>
-				<td>Zipcode:</td>
-				<td><input type="text" name="zipcode" /></td>
-			</tr>
-		</table>
-		<input type="submit" />
-	</form>
-	</div>
+		</nav>
+	<!-- end menus -->
+      <div class="row">
+        <div class="page-header">
+  		  <h1>Add Person</h1>
+	    </div>
+        <form:form class="form-horizontal" role="form" method="post" action="persons" modelAttribute="person">
+ 		  <form:errors path="*" cssClass="errorblock" element="td" />
+          <div class="form-group">
+   			  <label for="firstName" class="col-sm-2 control-label">First Name:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="firstName" class="form-control" id="firstName" placeholder="First Name" />
+              <form:errors path="firstName" cssClass="error" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="lastName" class="form-control" id="lastName" placeholder="Last Name" />
+            	<form:errors path="lastName" cssClass="error" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="email" class="col-sm-2 control-label">Email:</label>
+    	    <div class="col-sm-3">
+              <form:input type="email" path="email" class="form-control" id="email" placeholder="Email" />
+            	<form:errors path="email" cssClass="error" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="phone" class="col-sm-2 control-label">Phone:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="phone" class="form-control" id="phone" placeholder="Phone" />
+            	<form:errors path="phone" cssClass="error" />
+            </div>
+          </div>
+          
+          <%-- <div class="form-group">
+   			  <label for="city" class="col-sm-2 control-label">City:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="city" class="form-control" id="city" placeholder="City" />
+            </div>
+          </div>
+          <div class="form-group">
+   			  <label for="state" class="col-sm-2 control-label">State:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="state" class="form-control" id="state" placeholder="State" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="country" class="col-sm-2 control-label">Country:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="country" class="form-control" id="country" placeholder="Country" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="zipcode" class="col-sm-2 control-label">City:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="zipcode" class="form-control" id="zipcode" placeholder="Zipcode" />
+            </div>
+          </div> --%>
+          
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-primary" id="register" value="Add Person" />
+          </div>
+       </div>
+	
+     </form:form>
+         
+      </div><!-- end for class "row" -->
+   </div><!-- end for class "container" -->		
 </body>
 </html>

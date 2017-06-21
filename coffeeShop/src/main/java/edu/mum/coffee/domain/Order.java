@@ -33,7 +33,7 @@ public class Order {
 	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Orderline> orderLines = new ArrayList<Orderline>();
 //	@Transient 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Person person;
 
 	public int getId() {

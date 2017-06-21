@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.mum.coffee.domain.Order;
 import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.domain.Product;
 import edu.mum.coffee.service.OrderService;
 
+@SessionAttributes("person")
 @Controller
 public class OrderController {
 	@Autowired
@@ -35,7 +37,10 @@ public class OrderController {
 	}
 	
 	@GetMapping(value="addOrder")
-	public String addOrderWebPage(@ModelAttribute("order") Order order){
+	public String addOrderWebPage(Model model, @ModelAttribute("order") Order order){
+		Person p = new Person();
+		p.setFirstName("Gere");
+		model.addAttribute("person", p);
 		return "addOrder";
 	}
 	
@@ -61,15 +66,20 @@ public class OrderController {
 		return "editOrder";
 	}
 	
-	@PutMapping(value="/orders/update/{id}")
-	public String updateOrder(Order order, @PathVariable("id")int id){
+	@PostMapping(value="/orders/{id}")
+	public String updateOrder(@Valid Order order, @PathVariable("id")int id, BindingResult result){
+		String view ="redirect:/orders";
 		Order ord = orderService.findById(id);
 		ord = order;
+		if(!result.hasErrors()){
 		orderService.save(ord);
-		return "redirect:/orders";
+		}else{
+			view="editOrder";
+		}
+		return view;
 	}
 	
-	@DeleteMapping(value="/deleteorder/{id}")
+	@PostMapping(value="/deleteorder/{id}")
 	public String deleteOrder(Order order, @PathVariable("id")int id){
 		Order ord = orderService.findById(id);
 		orderService.delete(ord);

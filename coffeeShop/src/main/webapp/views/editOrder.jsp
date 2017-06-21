@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product</title>
+<title>Insert title here</title>
 <!-- <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <link rel="stylesheet" href="/resources/demos/style.css">
@@ -33,7 +33,8 @@
 
 </head>
 <body>
-<br />
+	<br />
+	<br />
 	<div class="container">
 	<!-- menus -->
 		<nav class="navbar navbar-inverse">
@@ -52,49 +53,32 @@
 	<!-- end menus -->
       <div class="row">
         <div class="page-header">
-  		  <h1>Update Product</h1>
+  		  <h1>Add Order</h1>
 	    </div>
-        <form:form class="form-horizontal" role="form" method="post" action="/products/${product.id}" modelAttribute="product">
+        <form:form class="form-horizontal" role="form" method="post" action="/orders/${order.id}" modelAttribute="order">
  		  <form:errors path="*" cssClass="errorblock" element="td" />
           <div class="form-group">
    			  <label for="id" class="col-sm-2 control-label">ID:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="id" class="form-control" id="id" value="${product.id}" />
+              <form:input type="text" path="id" class="form-control" id="id" placeholder="id" value="${order.id}" />
             </div>
           </div>
           
           <div class="form-group">
-   			  <label for="productName" class="col-sm-2 control-label">Product Name:</label>
+   			  <label for="orderDate" class="col-sm-2 control-label">Order Date:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="productName" class="form-control" id="productName" value="${product.productName}"  />
+              <form:input type="date" path="orderDate" class="form-control" id="orderDate" placeholder="yyyy-mm-dd" />
             </div>
           </div>
           
-          <div class="form-group">
-   			  <label for="description" class="col-sm-2 control-label">Product Name:</label>
-    	    <div class="col-sm-3">
-              <form:textarea type="text" rows="4" path="description" class="form-control" id="description" value="${product.description}" />
-            </div>
-          </div>
-          
-          <div class="form-group">
-   			  <label for="price" class="col-sm-2 control-label">Price:</label>
-    	    <div class="col-sm-3">
-              <form:input type="text" path="price" class="form-control" id="price" value="${product.price}" />
-            </div>
-          </div>
-          
-          <div class="form-group">
-   			  <label for="productType" class="col-sm-2 control-label">Product Type:</label>
-    	    <div class="col-sm-3">
-              <form:select path="productType" class="form-control" id="productType" value="${product.productType}">
-              				<option value="DINNER">DINNER</option>
-							<option value="BREAKFAST" selected>BREAKFAST</option>
-							<option value="LUNCH">LUNCH</option>
-             </form:select>
-            </div>
-          </div>
-        <div class="form-group">
+         <%-- <div class="form-group">
+             <label for="person" class="col-sm-2 control-label">Person Name:</label>
+           <div class="col-sm-4">
+      		 <form:input type="person" path="person.firstName" class="form-control" id="person" placeholder="Password" />
+           </div>
+         </div> --%>
+         
+       <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <input type="submit" class="btn btn-primary" id="register" value="Update" />
           </div>
@@ -103,6 +87,7 @@
      </form:form>
          
       </div><!-- end for class "row" -->
-   </div><!-- end for class "container" -->		
+   </div><!-- end for class "container" -->
+	
 </body>
 </html>

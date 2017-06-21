@@ -67,16 +67,20 @@
           <div class="form-group">
    			  <label for="orderDate" class="col-sm-2 control-label">Order Date:</label>
     	    <div class="col-sm-3">
-              <form:input type="date" path="orderDate" class="form-control" id="orderDate" placeholder="yyyy-mm-dd" />
+              <form:input type="date" path="orderDate" class="form-control" id="orderDate" placeholder="yyyy-MM-dd" />
             </div>
           </div>
           
-         <%-- <div class="form-group">
-             <label for="person" class="col-sm-2 control-label">Person Name:</label>
-           <div class="col-sm-4">
-      		 <form:input type="person" path="person.firstName" class="form-control" id="person" placeholder="Password" />
+         <div class="form-group">
+             <div class="col-sm-4">
+      		 <form:hidden path="person.id" value="${person.id}"/>
            </div>
-         </div> --%>
+         </div>
+         <div class="form-group">
+             <div class="col-sm-4">
+      		 <form:hidden path="person.firstName" value="${person.firstName}"/>
+           </div>
+         </div>
          
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
