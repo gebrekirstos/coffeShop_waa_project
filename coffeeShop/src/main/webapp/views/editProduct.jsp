@@ -36,31 +36,42 @@
 		</div>
 	</nav>
 	<h1 align="center">Edit Product!</h1>
-	<form action="/products/update/${product.id}" method="post">
+	<form:form action="/products/update/${product.id}" method="post" modelAttribute="product">
+	<form:errors path="*" cssClass="errorblock" element="td" />
 	<table class="table table-striped">
 		<tr>
 			<td>ID:</td>
-			<td><input type="text" name="id" value="${product.id}" /> </td>
+			<td><form:input type="text" path="id" value="${product.id}" /> </td>
+			<td><form:errors path="id" cssClass="error" /></td>
 		</tr>
 		<tr>
 			<td>Product Name:</td>
-			<td><input type="text" name="productName" value="${product.productName}" /> </td>
+			<td><form:input type="text" path="productName" value="${product.productName}" /> </td>
+			<td><form:errors path="productName" cssClass="error" /></td>
 		</tr>
 		<tr>
 			<td>Description:</td>
-			<td><input type="text" name="description" value="${product.description}" /> </td>
+			<td><form:textarea rows="3" cols="30" path="description" value="${product.description}" /> </td>
+			<td><form:errors path="description" cssClass="error" /></td>
 		</tr>
 		<tr>
 			<td>Price:</td>
-			<td><input type="text" name="price" value="${product.price}" /> </td>
+			<td><form:input type="text" path="price" value="${product.price}" /> </td>
+			<td><form:errors path="price" cssClass="error" /></td>
 		</tr>
 		<tr>
 			<td>Product Type:</td>
-			<td><input type="text" name="phone" value="${product.productType}" /> </td>
+			<td><form:select path="productType" value="${product.productType}">
+							<option value="DINNER">DINNER</option>
+							<option value="BREAKFAST" selected>BREAKFAST</option>
+							<option value="LUNCH">LUNCH</option>
+						</form:select></td>
+			<%-- <td><form:input type="text" path="productType" value="${product.productType}" /> </td> --%>
+			<td><form:errors path="productType" cssClass="error" /></td>
 		</tr>
 	</table>
 	<input type="submit" value="update"/>
-	</form>
+	</form:form>
 	<%-- <form action="products/delete/${person.id}" method="post">
 		<button type="submit" class="btn btn-primary">Delete</button>
 	</form> --%>

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Product</title>
 <!-- <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <link rel="stylesheet" href="/resources/demos/style.css">
@@ -33,48 +33,76 @@
 
 </head>
 <body>
-	<br/> <br/>
+<br />
 	<div class="container">
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">CoffeShope</a>
+	<!-- menus -->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">CoffeShope</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Persons</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Orders</a></li>
+				</ul>
 			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Persons</a></li>
-				<li><a href="#">Products</a></li>
-				<li><a href="#">Orders</a></li>
-			</ul>
-		</div>
-	</nav>
+		</nav>
+	<!-- end menus -->
+      <div class="row">
+        <div class="page-header">
+  		  <h1>Add Product</h1>
+	    </div>
+        <form:form class="form-horizontal" role="form" method="post" action="products" modelAttribute="product">
+ 		  <form:errors path="*" cssClass="errorblock" element="td" />
+          <div class="form-group">
+   			  <label for="id" class="col-sm-2 control-label">ID:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="id" class="form-control" id="id" placeholder="id" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="productName" class="col-sm-2 control-label">Product Name:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="productName" class="form-control" id="productName" placeholder="Product Name" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="description" class="col-sm-2 control-label">Product Name:</label>
+    	    <div class="col-sm-3">
+              <form:textarea type="text" rows="4" path="description" class="form-control" id="description" placeholder="Description" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="price" class="col-sm-2 control-label">Price:</label>
+    	    <div class="col-sm-3">
+              <form:input type="text" path="price" class="form-control" id="price" placeholder="" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+   			  <label for="productType" class="col-sm-2 control-label">Product Type:</label>
+    	    <div class="col-sm-3">
+              <form:select path="productType" class="form-control" id="productType">
+              				<option value="DINNER">DINNER</option>
+							<option value="BREAKFAST" selected>BREAKFAST</option>
+							<option value="LUNCH">LUNCH</option>
+             </form:select>
+            </div>
+          </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary" id="register">Add Product</button>
+          </div>
+       </div>
 	
-	<h1>Add Product</h1>
-	<form action="products" method="post">
-		<table class="table table-hover">
-			<tr>
-				<td>ID:</td>
-				<td><input type="text" name="id" /></td>
-			</tr>
-			<tr>
-				<td>Product Name:</td>
-				<td><input type="text" name="productName" /></td>
-			</tr>
-			<tr>
-				<td>Description:</td>
-				<td><textarea name="description"> Type product description</textarea></td>
-			</tr>
-			<tr>
-				<td>Price:</td>
-				<td><input type="text" name="price" /></td>
-			</tr>
-			<tr>
-				<td>Product Type:</td>
-				<td><input type="text" name="productType" /></td>
-			</tr>
-		</table>
-		<input type="submit" />
-	</form>
-	</div>
+     </form:form>
+         
+      </div><!-- end for class "row" -->
+   </div><!-- end for class "container" -->		
 </body>
 </html>

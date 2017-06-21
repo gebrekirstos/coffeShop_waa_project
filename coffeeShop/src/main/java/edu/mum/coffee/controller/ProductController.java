@@ -2,11 +2,14 @@ package edu.mum.coffee.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -26,14 +29,19 @@ public class ProductController {
 	}
 	//add product
 	@GetMapping(value="addProduct")
-	public String addProductWebPage(Model model){
-		model.addAttribute("addProduct");
+	public String addProductWebPage(@ModelAttribute("product") Product product){
 		return "addProduct";
 	}
 	@PostMapping(value="products")
-	public String saveProduct(Product product){
-		productService.save(product);
-		return "redirect:/products";
+	public String saveProduct(@Valid Product product, BindingResult result){
+		String view = "redirect:/products";
+		if(!result.hasErrors()){
+			productService.save(product);
+		}else{
+			view="addProduct";
+		}
+		
+		return view;
 	}
 	
 	@GetMapping(value="/products/{id}")
@@ -42,12 +50,18 @@ public class ProductController {
 		return "editProduct";
 	}
 	
-	@PostMapping(value="/products/update/{id}")
-	public String updateProduct(@PathVariable("id")int id, Product product){
+	@PostMapping(value="/products/{id}")
+	public String updateProduct(@PathVariable("id")int id, @Valid Product product, BindingResult result){
+		String view ="redirect:/products";
 		Product prod = productService.getProduct(id);
 		prod = product;
-		productService.save(prod);
-		return "redirect:/products";
+		if(!result.hasErrors()){
+			productService.save(prod);
+		}
+		else{
+			view="editProduct";
+		}
+		return view;
 	}
 	
 	@PostMapping(value="/deleteproduct/{id}")

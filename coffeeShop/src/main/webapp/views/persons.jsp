@@ -46,8 +46,8 @@ $(document).ready(function(){
 		</div>
 	</nav>
 	<h1 align="center">Person List</h1>
-	<a href="<c:url value="/addPerson" />"> Add Person </a>
-<%-- <a href="${path}/addPerson"> Add Person</a> --%>
+	
+	
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
@@ -75,16 +75,7 @@ $(document).ready(function(){
 			</tr>
 		</c:forEach>
 	</table>
-	<p>
-	 <form action="#">
-	    <input type="text" name="hello" value="world"/>
-	    <input type="submit"/>
-	 </form>
-	
-	</p>
-
-	<button id="hide">Hide</button>
-	<button id="show">Add</button>
+	<a href="<c:url value="/addPerson" />"> Add Person </a>
 	</div>
 </body>
 </html>

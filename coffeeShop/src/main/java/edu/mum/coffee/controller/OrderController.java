@@ -3,10 +3,15 @@ package edu.mum.coffee.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,7 +23,7 @@ import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.domain.Product;
 import edu.mum.coffee.service.OrderService;
 
-@RestController
+@Controller
 public class OrderController {
 	@Autowired
 	private OrderService orderService;
@@ -30,16 +35,25 @@ public class OrderController {
 	}
 	
 	@GetMapping(value="addOrder")
-	public String addOrderWebPage(Model model){
-		model.addAttribute("addOrder");
+	public String addOrderWebPage(@ModelAttribute("order") Order order){
 		return "addOrder";
 	}
 	
 	@PostMapping(value="orders")
+	public String saveOrder(@Valid Order order, BindingResult result){
+		String view="redirect:/orders";
+		if(!result.hasErrors()){
+		orderService.save(order);
+		}else{
+			view="addOrder";
+		}
+		return view;
+	}
+	/*@PostMapping(value="orders")
 	public String saveOrder(Order order){
 		orderService.save(order);
 		return "redirect:/orders";
-	}
+	}*/
 	
 	@GetMapping(value="/orders/{id}")
 	public String getOrder(@PathVariable("id")int id, Model model){

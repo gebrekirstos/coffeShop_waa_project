@@ -5,6 +5,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Product {
@@ -12,9 +16,13 @@ public class Product {
 	@Id
 	@GeneratedValue
 	private int id;
+	@NotEmpty
 	private String productName;
 	private String description;
+	@NotNull
+	@DecimalMax("50.0")
 	private double price;
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private ProductType productType;
 
