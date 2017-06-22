@@ -31,13 +31,13 @@ public class PersonController {
 	}
 	//add person
 	@GetMapping(value="addPerson")
-	public String addPersonWebPage(@ModelAttribute("person") Person person, Address address){		
+	public String addPersonWebPage(@ModelAttribute("person") Person person, Address address){
+		person.setAddress(address);
 		return "addPerson";
 	}
 	
 	@PostMapping(value="persons")
-	public String savePerson(Person person, Address address){
-		person.setAddress(address);
+	public String savePerson(Person person){
 		personService.savePerson(person);
 		return "redirect:/persons";
 	}

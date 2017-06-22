@@ -44,9 +44,16 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Persons</a></li>
-					<li><a href="#">Products</a></li>
-					<li><a href="#">Orders</a></li>
+					<security:authorize access="hasRole('ADMIN')">
+						<li><a href="persons">Persons</a></li>
+						<li><a href="products">Products</a></li>
+						<li><a href="orders">Orders</a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('USER')">
+						<li><a href="products">Products</a></li>
+						<li><a href="orders">Orders</a></li>
+					</security:authorize>
+					<li><a href="<c:url value="/logout" />"> Now logout </a></li>
 				</ul>
 			</div>
 		</nav>
@@ -87,7 +94,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<a href="<c:url value="/addPerson" />"> Add Person </a>
+		<%-- <a href="<c:url value="/addPerson" />"> Add Person </a> --%>
+		<a href="${path}/addPerson"> Add Person </a>
 	</div>
 </body>
 </html>

@@ -33,9 +33,16 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Persons</a></li>
-					<li><a href="#">Products</a></li>
-					<li><a href="#">Orders</a></li>
+					<security:authorize access="hasRole('ADMIN')">
+						<li><a href="persons">Persons</a></li>
+						<li><a href="products">Products</a></li>
+						<li><a href="orders">Orders</a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('USER')">
+						<li><a href="products">Products</a></li>
+						<li><a href="orders">Orders</a></li>
+					</security:authorize>
+					<li><a href="<c:url value="/logout" />"> Now logout </a></li>
 				</ul>
 			</div>
 		</nav>
@@ -49,7 +56,7 @@
 				<th>Description</th>
 				<th>Price</th>
 				<th>Product Type</th>
-				<th>Action</th>
+				<th align="center">Action</th>
 			</tr>
 			<c:forEach var="product" items="${products}">
 				<tr>
@@ -58,34 +65,34 @@
 					<td>${product.description}</td>
 					<td>${product.price}</td>
 					<td>${product.productType}</td>
-					<td>
-						<%-- <security:authorize access="hasRole('ADMIN')">	
-						<form action="/deleteproduct/${product.id}" method="post">
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
-									<a href="${path}/products/${product.id}"> <input
-										type="button" class="btn btn-primary" id="edit" value="Edit"></a>
-									<input type="submit" class="btn btn-danger" id="delete"
-										value="Delete" />
+					<td><security:authorize access="hasRole('ADMIN')">
+							<form action="/deleteproduct/${product.id}" method="post">
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<a href="${path}/products/${product.id}"> <input
+											type="button" class="btn btn-primary" id="edit" value="Edit"></a>
+										<input type="submit" class="btn btn-danger" id="delete"
+											value="Delete" />
+									</div>
 								</div>
-							</div>
-						</form>
-						</security:authorize> --%>
-					<%-- <security:authorize access="hasRole('USER')">	 --%>
-					<form action="/deleteproduct/${product.id}" method="post">
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
-									<a href="${path}/products/${product.id}"> <input
-										type="button" class="btn btn-primary" id="edit" value="Order Now"></a>
+							</form>
+						</security:authorize> <security:authorize access="hasRole('USER')">
+							<form action="/ordernow/${product.id}" method="post">
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<a href="${path}/ordernow/${product.id}"> <input
+											type="button" class="btn btn-primary" id="edit"
+											value="Order Now"></a>
+									</div>
 								</div>
-							</div>
-						</form>
-						<%-- </security:authorize> --%>
-					</td>
+							</form>
+						</security:authorize></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<a href="${path}/addProduct"> Add Product</a>
+		<security:authorize access="hasRole('ADMIN')">
+			<a href="${path}/addProduct"> Add Product</a>
+		</security:authorize>
 	</div>
 </body>
 </html>

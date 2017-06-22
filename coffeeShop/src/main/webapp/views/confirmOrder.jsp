@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h4>You Successfully ordered!!</h4>
+	<h5>Thank you for choosing us!</h5>
 </body>
 </html>

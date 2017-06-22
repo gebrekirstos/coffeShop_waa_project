@@ -46,6 +46,7 @@
 					<li><a href="#">Persons</a></li>
 					<li><a href="#">Products</a></li>
 					<li><a href="#">Orders</a></li>
+					<li> <a href="<c:url value="/logout" />"> Now logout </a> </li>
 				</ul>
 			</div>
 		</nav>
@@ -88,32 +89,33 @@
             </div>
           </div>
           
-          <%-- <div class="form-group">
+           <div class="form-group">
    			  <label for="city" class="col-sm-2 control-label">City:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="city" class="form-control" id="city" placeholder="City" />
+              <form:input type="text" path="address.city" class="form-control" id="city" placeholder="City" />
             </div>
           </div>
+          
           <div class="form-group">
    			  <label for="state" class="col-sm-2 control-label">State:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="state" class="form-control" id="state" placeholder="State" />
+              <form:input type="text" path="address.state" class="form-control" id="state" placeholder="State" />
             </div>
           </div>
           
           <div class="form-group">
    			  <label for="country" class="col-sm-2 control-label">Country:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="country" class="form-control" id="country" placeholder="Country" />
+              <form:input type="text" path="address.country" class="form-control" id="country" placeholder="Country" />
             </div>
           </div>
           
           <div class="form-group">
    			  <label for="zipcode" class="col-sm-2 control-label">City:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="zipcode" class="form-control" id="zipcode" placeholder="Zipcode" />
+              <form:input type="text" path="address.zipcode" class="form-control" id="zipcode" placeholder="Zipcode" />
             </div>
-          </div> --%>
+          </div>
           
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">

@@ -3,9 +3,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <!DOCTYPE html>
-
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -43,10 +43,16 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Persons</a></li>
-					<li><a href="#">Products</a></li>
-					<li><a href="#">Orders</a></li>
-					<li> <a href="<c:url value="/logout" />"> Now logout </a> </li>
+					<security:authorize access="hasRole('ADMIN')">
+						<li><a href="persons">Persons</a></li>
+						<li><a href="products">Products</a></li>
+						<li><a href="orders">Orders</a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('USER')">
+						<li><a href="products">Products</a></li>
+						<li><a href="orders">Orders</a></li>
+					</security:authorize>
+					<li><a href="<c:url value="/logout" />"> Now logout </a></li>
 				</ul>
 			</div>
 		</nav>
@@ -55,49 +61,45 @@
         <div class="page-header">
   		  <h1>Update Product</h1>
 	    </div>
-        <form:form class="form-horizontal" role="form" method="post" action="/products/${product.id}" modelAttribute="product">
+        <form:form class="form-horizontal" role="form" method="get" action="products" >
  		  <form:errors path="*" cssClass="errorblock" element="td" />
           <div class="form-group">
    			  <label for="id" class="col-sm-2 control-label">ID:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="id" class="form-control" id="id" value="${product.id}" />
+              ${product.id}
             </div>
           </div>
           
           <div class="form-group">
    			  <label for="productName" class="col-sm-2 control-label">Product Name:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="productName" class="form-control" id="productName" value="${product.productName}"  />
+              ${product.productName}
             </div>
           </div>
           
           <div class="form-group">
    			  <label for="description" class="col-sm-2 control-label">Product Name:</label>
     	    <div class="col-sm-3">
-              <form:textarea type="text" rows="4" path="description" class="form-control" id="description" value="${product.description}" />
+             ${product.description}
             </div>
           </div>
           
           <div class="form-group">
    			  <label for="price" class="col-sm-2 control-label">Price:</label>
     	    <div class="col-sm-3">
-              <form:input type="text" path="price" class="form-control" id="price" value="${product.price}" />
+             ${product.price}
             </div>
           </div>
           
           <div class="form-group">
    			  <label for="productType" class="col-sm-2 control-label">Product Type:</label>
     	    <div class="col-sm-3">
-              <form:select path="productType" class="form-control" id="productType" value="${product.productType}">
-              				<option value="DINNER">DINNER</option>
-							<option value="BREAKFAST" selected>BREAKFAST</option>
-							<option value="LUNCH">LUNCH</option>
-             </form:select>
+              ${product.productType}
             </div>
           </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" class="btn btn-primary" id="register" value="Update" />
+            <input type="submit" class="btn btn-primary" id="register" value="Confirm Order" />
           </div>
        </div>
 	

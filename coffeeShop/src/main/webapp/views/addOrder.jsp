@@ -47,6 +47,7 @@
 					<li><a href="#">Persons</a></li>
 					<li><a href="#">Products</a></li>
 					<li><a href="#">Orders</a></li>
+					<li> <a href="<c:url value="/logout" />"> Now logout </a> </li>
 				</ul>
 			</div>
 		</nav>

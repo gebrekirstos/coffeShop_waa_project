@@ -24,7 +24,7 @@ import edu.mum.coffee.domain.Person;
 import edu.mum.coffee.domain.Product;
 import edu.mum.coffee.service.OrderService;
 
-@SessionAttributes("person")
+//@SessionAttributes("person")
 @Controller
 public class OrderController {
 	@Autowired
@@ -38,9 +38,9 @@ public class OrderController {
 	
 	@GetMapping(value="addOrder")
 	public String addOrderWebPage(Model model, @ModelAttribute("order") Order order){
-		Person p = new Person();
-		p.setFirstName("Gere");
-		model.addAttribute("person", p);
+//		Person p = new Person();
+//		p.setFirstName("Gere");
+//		model.addAttribute("person", p);
 		return "addOrder";
 	}
 	

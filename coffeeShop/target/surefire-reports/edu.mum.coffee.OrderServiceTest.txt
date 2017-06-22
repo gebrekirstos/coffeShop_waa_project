@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.mum.coffee.OrderServiceTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 7.921 sec <<< FAILURE! - in edu.mum.coffee.OrderServiceTest
-testFindByPerson(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.903 sec  <<< ERROR!
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 9.762 sec <<< FAILURE! - in edu.mum.coffee.OrderServiceTest
+testFindByPerson(edu.mum.coffee.OrderServiceTest)  Time elapsed: 1.018 sec  <<< ERROR!
 javax.validation.ConstraintViolationException: Validation failed for classes [edu.mum.coffee.domain.Product] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
 	ConstraintViolationImpl{interpolatedMessage='must be less than or equal to 50.0', propertyPath=price, rootBeanClass=class edu.mum.coffee.domain.Product, messageTemplate='{javax.validation.constraints.DecimalMax.message}'}
@@ -32,7 +32,7 @@ List of constraint violations:[
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
-	at com.sun.proxy.$Proxy99.persist(Unknown Source)
+	at com.sun.proxy.$Proxy96.persist(Unknown Source)
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -57,7 +57,7 @@ List of constraint violations:[
 	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
-	at com.sun.proxy.$Proxy104.save(Unknown Source)
+	at com.sun.proxy.$Proxy98.save(Unknown Source)
 	at edu.mum.coffee.service.ProductService.save(ProductService.java:21)
 	at edu.mum.coffee.service.ProductService$$FastClassBySpringCGLIB$$60d18700.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
@@ -68,11 +68,11 @@ List of constraint violations:[
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$24ef24da.save(<generated>)
+	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$1f0db06d.save(<generated>)
 	at edu.mum.coffee.OrderServiceTest.createProducts(OrderServiceTest.java:217)
 	at edu.mum.coffee.OrderServiceTest.setUp(OrderServiceTest.java:53)
 
-testFindByProduct(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.212 sec  <<< ERROR!
+testFindByProduct(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.22 sec  <<< ERROR!
 javax.validation.ConstraintViolationException: Validation failed for classes [edu.mum.coffee.domain.Product] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
 	ConstraintViolationImpl{interpolatedMessage='must be less than or equal to 50.0', propertyPath=price, rootBeanClass=class edu.mum.coffee.domain.Product, messageTemplate='{javax.validation.constraints.DecimalMax.message}'}
@@ -102,7 +102,7 @@ List of constraint violations:[
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
-	at com.sun.proxy.$Proxy99.persist(Unknown Source)
+	at com.sun.proxy.$Proxy96.persist(Unknown Source)
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -127,7 +127,7 @@ List of constraint violations:[
 	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
-	at com.sun.proxy.$Proxy104.save(Unknown Source)
+	at com.sun.proxy.$Proxy98.save(Unknown Source)
 	at edu.mum.coffee.service.ProductService.save(ProductService.java:21)
 	at edu.mum.coffee.service.ProductService$$FastClassBySpringCGLIB$$60d18700.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
@@ -138,11 +138,11 @@ List of constraint violations:[
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$24ef24da.save(<generated>)
+	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$1f0db06d.save(<generated>)
 	at edu.mum.coffee.OrderServiceTest.createProducts(OrderServiceTest.java:217)
 	at edu.mum.coffee.OrderServiceTest.setUp(OrderServiceTest.java:53)
 
-testFindAll(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.244 sec  <<< ERROR!
+testFindAll(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.233 sec  <<< ERROR!
 javax.validation.ConstraintViolationException: Validation failed for classes [edu.mum.coffee.domain.Product] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
 	ConstraintViolationImpl{interpolatedMessage='must be less than or equal to 50.0', propertyPath=price, rootBeanClass=class edu.mum.coffee.domain.Product, messageTemplate='{javax.validation.constraints.DecimalMax.message}'}
@@ -172,7 +172,7 @@ List of constraint violations:[
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
-	at com.sun.proxy.$Proxy99.persist(Unknown Source)
+	at com.sun.proxy.$Proxy96.persist(Unknown Source)
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -197,7 +197,7 @@ List of constraint violations:[
 	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
-	at com.sun.proxy.$Proxy104.save(Unknown Source)
+	at com.sun.proxy.$Proxy98.save(Unknown Source)
 	at edu.mum.coffee.service.ProductService.save(ProductService.java:21)
 	at edu.mum.coffee.service.ProductService$$FastClassBySpringCGLIB$$60d18700.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
@@ -208,11 +208,11 @@ List of constraint violations:[
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$24ef24da.save(<generated>)
+	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$1f0db06d.save(<generated>)
 	at edu.mum.coffee.OrderServiceTest.createProducts(OrderServiceTest.java:217)
 	at edu.mum.coffee.OrderServiceTest.setUp(OrderServiceTest.java:53)
 
-testSave(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.206 sec  <<< ERROR!
+testSave(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.226 sec  <<< ERROR!
 javax.validation.ConstraintViolationException: Validation failed for classes [edu.mum.coffee.domain.Product] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
 	ConstraintViolationImpl{interpolatedMessage='must be less than or equal to 50.0', propertyPath=price, rootBeanClass=class edu.mum.coffee.domain.Product, messageTemplate='{javax.validation.constraints.DecimalMax.message}'}
@@ -242,7 +242,7 @@ List of constraint violations:[
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
-	at com.sun.proxy.$Proxy99.persist(Unknown Source)
+	at com.sun.proxy.$Proxy96.persist(Unknown Source)
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -267,7 +267,7 @@ List of constraint violations:[
 	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
-	at com.sun.proxy.$Proxy104.save(Unknown Source)
+	at com.sun.proxy.$Proxy98.save(Unknown Source)
 	at edu.mum.coffee.service.ProductService.save(ProductService.java:21)
 	at edu.mum.coffee.service.ProductService$$FastClassBySpringCGLIB$$60d18700.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
@@ -278,11 +278,11 @@ List of constraint violations:[
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$24ef24da.save(<generated>)
+	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$1f0db06d.save(<generated>)
 	at edu.mum.coffee.OrderServiceTest.createProducts(OrderServiceTest.java:217)
 	at edu.mum.coffee.OrderServiceTest.setUp(OrderServiceTest.java:53)
 
-testFindByDate(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.204 sec  <<< ERROR!
+testFindByDate(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.181 sec  <<< ERROR!
 javax.validation.ConstraintViolationException: Validation failed for classes [edu.mum.coffee.domain.Product] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
 	ConstraintViolationImpl{interpolatedMessage='must be less than or equal to 50.0', propertyPath=price, rootBeanClass=class edu.mum.coffee.domain.Product, messageTemplate='{javax.validation.constraints.DecimalMax.message}'}
@@ -307,13 +307,13 @@ List of constraint violations:[
 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
 	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
-	at sun.reflect.GeneratedMethodAccessor86.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor99.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
-	at com.sun.proxy.$Proxy99.persist(Unknown Source)
+	at com.sun.proxy.$Proxy96.persist(Unknown Source)
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
-	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor98.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
@@ -335,7 +335,7 @@ List of constraint violations:[
 	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
-	at com.sun.proxy.$Proxy104.save(Unknown Source)
+	at com.sun.proxy.$Proxy98.save(Unknown Source)
 	at edu.mum.coffee.service.ProductService.save(ProductService.java:21)
 	at edu.mum.coffee.service.ProductService$$FastClassBySpringCGLIB$$60d18700.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
@@ -346,11 +346,11 @@ List of constraint violations:[
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$24ef24da.save(<generated>)
+	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$1f0db06d.save(<generated>)
 	at edu.mum.coffee.OrderServiceTest.createProducts(OrderServiceTest.java:217)
 	at edu.mum.coffee.OrderServiceTest.setUp(OrderServiceTest.java:53)
 
-testFindById(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.259 sec  <<< ERROR!
+testFindById(edu.mum.coffee.OrderServiceTest)  Time elapsed: 0.209 sec  <<< ERROR!
 javax.validation.ConstraintViolationException: Validation failed for classes [edu.mum.coffee.domain.Product] during persist time for groups [javax.validation.groups.Default, ]
 List of constraint violations:[
 	ConstraintViolationImpl{interpolatedMessage='must be less than or equal to 50.0', propertyPath=price, rootBeanClass=class edu.mum.coffee.domain.Product, messageTemplate='{javax.validation.constraints.DecimalMax.message}'}
@@ -375,13 +375,13 @@ List of constraint violations:[
 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
 	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
 	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
-	at sun.reflect.GeneratedMethodAccessor86.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor99.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:298)
-	at com.sun.proxy.$Proxy99.persist(Unknown Source)
+	at com.sun.proxy.$Proxy96.persist(Unknown Source)
 	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:508)
-	at sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor98.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:504)
@@ -403,7 +403,7 @@ List of constraint violations:[
 	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
-	at com.sun.proxy.$Proxy104.save(Unknown Source)
+	at com.sun.proxy.$Proxy98.save(Unknown Source)
 	at edu.mum.coffee.service.ProductService.save(ProductService.java:21)
 	at edu.mum.coffee.service.ProductService$$FastClassBySpringCGLIB$$60d18700.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
@@ -414,7 +414,7 @@ List of constraint violations:[
 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
-	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$24ef24da.save(<generated>)
+	at edu.mum.coffee.service.ProductService$$EnhancerBySpringCGLIB$$1f0db06d.save(<generated>)
 	at edu.mum.coffee.OrderServiceTest.createProducts(OrderServiceTest.java:217)
 	at edu.mum.coffee.OrderServiceTest.setUp(OrderServiceTest.java:53)
 
